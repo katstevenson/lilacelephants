@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lilac Elephants — Apps for Makers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --lilac: #b89ec4;
+      --lilac-light: #e8dff0;
+      --lilac-deep: #7a5c8a;
+      --ink: #1c1520;
+      --ink-muted: #6b5f72;
+      --cream: #faf8f5;
+      --cream-warm: #f2ede8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 3rem;
+      border-bottom: 1px solid var(--lilac-light);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+
+    .logo span {
+      color: var(--lilac-deep);
+    }
+
+    nav a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--lilac-deep); }
+
+    /* ── Hero ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 7rem 3rem 5rem;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      line-height: 1.1;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-text h1 em {
+      font-style: italic;
+      color: var(--lilac-deep);
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink-muted);
+      font-weight: 300;
+      max-width: 38ch;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .elephant-mark {
+      width: 200px;
+      height: 200px;
+      opacity: 0.85;
+    }
+
+    /* ── Apps ── */
+    .apps {
+      background: var(--cream-warm);
+      border-top: 1px solid var(--lilac-light);
+      border-bottom: 1px solid var(--lilac-light);
+      padding: 5rem 3rem;
+    }
+
+    .apps-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--lilac);
+      margin-bottom: 3rem;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      max-width: 560px;
+      gap: 2rem;
+    }
+
+    .app-card {
+      background: var(--cream);
+      border: 1px solid var(--lilac-light);
+      border-radius: 4px;
+      padding: 2.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+
+    .app-card:hover {
+      border-color: var(--lilac);
+      transform: translateY(-2px);
+    }
+
+    .app-card .app-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .app-card .app-tagline {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .app-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--lilac-light);
+      color: var(--lilac-deep);
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── About ── */
+    .about {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .about p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--ink-muted);
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Contact ── */
+    .contact {
+      background: var(--ink);
+      padding: 4rem 3rem;
+      text-align: center;
+    }
+
+    .contact p {
+      font-size: 0.85rem;
+      color: var(--lilac-light);
+      opacity: 0.7;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact a {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--lilac-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact a:hover { color: white; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer span {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-text, .hero-visual {
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-visual { animation-delay: 0.15s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .hero, .about { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
+      .hero-visual { display: none; }
+      .apps { padding: 4rem 1.5rem; }
+      .apps-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Lilac <span>Elephants</span></div>
+    
+  </nav>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Apps for<br /><em>makers &amp; crafters</em></h1>
+      <p>We build thoughtful mobile apps for people who make things with their hands — starting with the knitting community.</p>
+    </div>
+    <div class="hero-visual">
+      <svg class="elephant-mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="100" cy="100" r="100" fill="#e8dff0" />
+        <!-- Body -->
+        <ellipse cx="105" cy="118" rx="48" ry="40" fill="#b89ec4" />
+        <!-- Head -->
+        <circle cx="78" cy="90" r="32" fill="#b89ec4" />
+        <!-- Ear -->
+        <ellipse cx="52" cy="88" rx="18" ry="22" fill="#c9b4d6" />
+        <ellipse cx="54" cy="88" rx="12" ry="15" fill="#ddd0e8" />
+        <!-- Eye -->
+        <circle cx="72" cy="83" r="4" fill="#1c1520" />
+        <circle cx="73.5" cy="81.5" r="1.2" fill="white" />
+        <!-- Trunk -->
+        <path d="M62 102 Q44 108 42 124 Q40 138 52 140" stroke="#b89ec4" stroke-width="10" fill="none" stroke-linecap="round" />
+        <!-- Legs -->
+        <rect x="68" y="148" width="18" height="26" rx="9" fill="#a08ab0" />
+        <rect x="92" y="150" width="18" height="24" rx="9" fill="#a08ab0" />
+        <rect x="115" y="148" width="18" height="26" rx="9" fill="#a08ab0" />
+        <!-- Tail -->
+        <path d="M152 118 Q164 108 160 96" stroke="#a08ab0" stroke-width="5" fill="none" stroke-linecap="round" />
+        <!-- Tusk hint -->
+        <path d="M63 108 Q55 112 50 118" stroke="#ede6f5" stroke-width="4" fill="none" stroke-linecap="round" />
+      </svg>
+    </div>
+  </section>
+
+  <section class="apps">
+    <div class="apps-inner">
+      <div class="section-label">Our apps</div>
+      <div class="apps-grid">
+
+        <a class="app-card" href="https://untangled.app" target="_blank" rel="noopener">
+          <div class="app-badge">iOS · Coming soon</div>
+          <div class="app-name">Untangled</div>
+          <p class="app-tagline">A knitting companion built for the way knitters actually work — pattern tracking, stitch counting, and yarn management, beautifully unified.</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div>
+      <h2>About<br />Lilac Elephants</h2>
+    </div>
+    <div>
+      <p>Lilac Elephants Limited is an independent software company focused on making tools for craft and making communities. We're based in New Zealand and operate globally.</p>
+      <p>We believe the best software comes from people who genuinely care about the communities they build for. Every app we make is designed with real craft knowledge at its core.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2025 Lilac Elephants Limited</span>
+    <span>New Zealand</span>
+  </footer>
+
+</body>
+</html>
